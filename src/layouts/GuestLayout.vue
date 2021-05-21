@@ -1,28 +1,10 @@
 <template>
   <div>
-    <body
-      class="account-page"
-    >
-      <!-- Main Wrapper -->
-      <div class="main-wrapper">
-        <div class="account-content" style="padding: 35px 0">
-          <div class="container">
-            <!-- Account Logo -->
-            <div class="account-logo">
-              <router-link
-                to="/"
-              >
-                <img src="@/assets/logo.png" alt="Tokyo Tech Lab">
-              </router-link>
-            </div>
-            <!-- /Account Logo -->
-            <div class="account-box">
-              <Nuxt />
-            </div>
-          </div>
-        </div>
+    <body>
+      <LayoutsSwitchColor />
+      <div class="wrapper">
+        <Nuxt />
       </div>
-      <!-- /Main Wrapper -->
     </body>
   </div>
 </template>

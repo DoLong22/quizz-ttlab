@@ -24,11 +24,11 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'vue-custom-scrollbar/dist/vueScrollbar.css',
     'bootstrap/dist/css/bootstrap.css',
     'font-awesome/css/font-awesome.css',
     '@/assets/styles/css/line-awesome.min.css',
     '@/assets/styles/css/style.css',
+    '@/assets/styles/css/switch.css',
     '@/assets/styles/scss/index.scss'
   ],
 
@@ -89,7 +89,7 @@ export default {
   // Configuration Router https://go.nuxtjs.dev/configuration-router
   router: {
     linkActiveClass: 'active',
-    middleware: ['auth'],
+    // middleware: ['auth'],
     extendRoutes (routes) {
       getRoutes().then((results) => {
         routes.push(...results)

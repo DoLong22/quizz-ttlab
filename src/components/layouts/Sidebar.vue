@@ -1,100 +1,57 @@
 <template>
-  <div>
-    <!-- <sidebar> -->
-    <div
-      id="sidebar"
-      class="sidebar"
-      @mouseenter="expandMenu"
-      @mouseleave="expandMenu"
-    >
-      <div id="style-15" class="sidebar-inner">
-        <vue-custom-scrollbar class="scroll-area" :settings="settings">
-          <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
-              <template v-for="(menu, index) in menus">
-                <li v-if="menu.title" :key="index" class="menu-title" :class="menu.class">
-                  <span>{{ menu.title }}</span>
-                </li>
-                <template v-for="(submenu, submenuIndex) in menu.submenu">
-                  <li :key="`${index}-${submenuIndex}`" class="submenu">
-                    <router-link v-if="submenu.to" :to="submenu.to">
-                      <i class="la" :class="{['la-' + submenu.icon]: true}" />
-                      <span>{{ submenu.name }}</span>
-                      <span v-if="submenu.badge" class="badge badge-primary ml-auto">{{ submenu.badge }}</span>
-                    </router-link>
-                    <a
-                      v-else
-                      href="javascript:void(0)"
-                      :class="{
-                        'noti-dot': submenu.hasNotify,
-                        'active': submenu.active,
-                        'subdrop': submenu.subdrop
-                      }"
-                      @click="onMenuClick(submenu)"
-                    >
-                      <i class="la" :class="{['la-' + submenu.icon]: true}" />
-                      <span> {{ submenu.name }}</span>
-                      <span v-if="submenu.badge" class="badge badge-primary ml-auto">{{ submenu.badge }}</span>
-                      <span
-                        v-if="submenu.childs"
-                        class="menu-arrow"
-                      />
-                    </a>
-                    <transition name="slide">
-                      <ul
-                        v-if="submenu.childs && submenu.subdrop && (!isMiniSidebar || isExpandMenu)"
-                        class="d-block"
-                      >
-                        <li v-for="(subChild, subIndex) in submenu.childs" :key="subIndex">
-                          <router-link :to="subChild.to" :class="subChild.class" @click="onMenuClick(subChild)">
-                            {{ subChild.name }}
-                            <span v-if="subChild.badge" class="badge badge-pill bg-primary float-right">
-                              {{ subChild.badge }}
-                            </span>
-                          </router-link>
-                        </li>
-                      </ul>
-                    </transition>
-                  </li>
-                </template>
-              </template>
-            </ul>
+  <div class="steps d-inline-block clearfix">
+    <span class="bg-shape" />
+    <ul class="tablist multisteps-form__progress">
+      <li class="multisteps-form__progress-btn js-active current">
+        <div class="step-btn-icon-text">
+          <div class="step-btn-icon float-left position-relative">
+            <img src="~/assets/images/bt1.png" alt="">
           </div>
-        </vue-custom-scrollbar>
-      </div>
-    </div>
-    <!-- </sidebar> -->
+          <div class="step-btn-text">
+            <h2 class="text-uppercase">
+              Job Board
+            </h2>
+            <span class="text-capitalize">Job Available</span>
+          </div>
+        </div>
+      </li>
+      <li class="multisteps-form__progress-btn">
+        <div class="step-btn-icon-text">
+          <span>2</span>
+          <div class="step-btn-icon float-left position-relative">
+            <img class="fix-image" src="~/assets/images/bt2.png" alt="">
+          </div>
+          <div class="step-btn-text">
+            <h2 class="text-uppercase">
+              Send Details
+            </h2>
+            <span class="text-capitalize">Job Available</span>
+          </div>
+        </div>
+      </li>
+      <li class="multisteps-form__progress-btn">
+        <div class="step-btn-icon-text">
+          <span>3</span>
+          <div class="step-btn-icon float-left position-relative">
+            <img class="fix-image-2" src="~/assets/images/bt3.png" alt="">
+          </div>
+          <div class="step-btn-text">
+            <h2 class="text-uppercase">
+              ThankYou
+            </h2>
+            <span class="text-capitalize">Job Available</span>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
-import { app } from '@/store'
-import { ISubMenu } from '@/modules/common/types'
-import { menus as initMenu } from './menu'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup () {
-    const settings = computed(() => ({
-      suppressScrollX: false
-    }))
-
-    const menus = ref(initMenu)
-
-    const onMenuClick = (submenu: ISubMenu) => {
-      submenu.subdrop = !submenu.subdrop
-    }
-
-    const isMiniSidebar = computed(() => app.isMiniSidebar)
-    const isExpandMenu = computed(() => app.isExpandMenu)
-
-    const expandMenu = () => {
-      if (!isMiniSidebar.value) {
-        return
-      }
-      app.toggleExpandMenu()
-    }
-
-    return { settings, menus, onMenuClick, isMiniSidebar, isExpandMenu, expandMenu }
+    return {}
   }
 })
 </script>
