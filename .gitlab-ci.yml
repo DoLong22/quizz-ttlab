@@ -1,0 +1,34 @@
+# Node docker image on which this would be run
+image: node:12.19.0
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - dev
+  - production
+
+# Deploy develop:
+Dev:
+  stage: dev
+  image: ruby:latest
+  only:
+    - develop
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_DEV_NAME --api-key=$HEROKU_API_KEY
+
+# Deploy production:
+Production:
+  stage: production
+  image: ruby:latest
+  only:
+    - master
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCT_NAME --api-key=$HEROKU_API_KEY
