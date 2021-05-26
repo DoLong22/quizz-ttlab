@@ -94,10 +94,13 @@ export default {
       getRoutes().then((results) => {
         routes.push(...results)
       })
-      routes.push({
-        path: '/',
-        redirect: '/dashboard'
-      })
+      const index = routes.findIndex(route => !route.path)
+      if (index > -1) {
+        routes[index] = {
+          path: '/',
+          redirect: '/dashboard'
+        }
+      }
     }
   },
 

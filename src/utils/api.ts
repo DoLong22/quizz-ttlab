@@ -8,6 +8,7 @@ export function initializeAxios (axiosInstance: NuxtAxiosInstance) {
   $axios = axiosInstance
 }
 
+export { $axios }
 export class BaseService implements IService {
   client: NuxtAxiosInstance
   baseUrl: string
@@ -31,6 +32,10 @@ export class BaseService implements IService {
 
   get deleteUrl () {
     return this.baseUrl
+  }
+
+  useClient (axios: NuxtAxiosInstance) {
+    this.client = axios
   }
 
   beforeCreate<P> (params: P) {
