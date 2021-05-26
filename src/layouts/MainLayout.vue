@@ -1,7 +1,7 @@
 <template>
   <div>
     <body>
-      <LayoutsSwitchColor />
+      <!-- <LayoutsSwitchColor /> -->
       <div class="wrapper">
         <Nuxt />
       </div>

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "kanji": "賢い",
+    "hiragana": "かしこい",
+    "romaji": "kashikoi",
+    "kanji_desc": "",
+    "desc": "Thông minh",
+    "category": []
+  },
+  {
+    "id": 2,
+    "kanji": "熱心",
+    "hiragana": "ねっしん",
+    "romaji": "nesshin",
+    "kanji_desc": "",
+    "desc": "Nhiệt tình",
+    "category": []
+  },
+  {
+    "id": 3,
+    "kanji": "なまける",
+    "hiragana": "",
+    "romaji": "namakeru",
+    "kanji_desc": "",
+    "desc": "Lười biếng",
+    "category": []
+  },
+  {
+    "id": 4,
+    "kanji": "",
+    "hiragana": "シャツ",
+    "romanji": "shatsu",
+    "kanji_desc": "Shirt",
+    "desc": "Áo sơ mi",
+    "category": []
+  },
+  {
+    "id": 5,
+    "kanji": "",
+    "hiragana": "ジーンズ",
+    "romaji": "ji-nzu",
+    "kanji_desc": "",
+    "desc": "Quần Jean",
+    "category": []
+  }
+]
