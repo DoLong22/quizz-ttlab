@@ -50,7 +50,7 @@ export class BaseService implements IService {
     return params
   }
 
-  getList<P, R extends IGetListResponse> (params: P | IGetListParams) {
+  getList<P, R extends IGetListResponse> (params?: P | IGetListParams) {
     return this.client.$get<R>(this.baseUrl, { params })
   }
 

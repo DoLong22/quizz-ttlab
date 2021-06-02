@@ -3,7 +3,8 @@ import { Plugin } from '@nuxt/types'
 export enum Layout {
   MAIN = 'MainLayout',
   GUEST = 'GuestLayout',
-  ERROR = 'ErrorLayout'
+  ERROR = 'ErrorLayout',
+  ADMIN = 'AdminMainLayout'
 }
 
 declare module 'vue/types/vue' {
